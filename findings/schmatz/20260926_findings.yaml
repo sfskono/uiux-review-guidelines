@@ -1,0 +1,126 @@
+# schmatz UI/UX 初回レビュー 指摘記録
+# guideline: rev1 / profile: uiux_profile_schmatz_rev2.md
+# 対象: sfskono/schmatz（モック 50画面＋index）/ 評価フェーズ: DS（モック）
+# 実施: 2026-09-26 / 幅 320・390・1440px / Chromium（Playwright）+ axe-core 4
+findings:
+  - finding_id: SCH-20260926-01
+    item_id: TXT-01
+    screen: 講師・PM・人事の出席一覧、人事ダッシュボード（凡例）、状態フィルタ
+    phase: DS
+    severity: 3
+    severity_note: 既定2＋L3重み+1
+    description: 「遅刻」の誤記と思われる「遅行」が、状態バッジ（遅行 09:30予定）、状態フィルタ（遅行の連絡）、グラフ凡例などに表示されている。src/original-app.js 内に7箇所
+    suggestion: 「遅行」を「遅刻」に一括置換する。用語集に「遅刻」を登録し、avoid に「遅行」を追加する
+    judged_by: llm
+    llm_verdict: NG
+    status: open
+
+  - finding_id: SCH-20260926-02
+    item_id: CON-02
+    screen: 社員 その他の連絡・申請 → 入力 → 確認、講師・PM一覧
+    phase: DS
+    severity: 2
+    description: 同じ概念の呼び方が画面ごとに異なる。種別は「遅れます」（メニュー）／「遅刻」（入力・確認）／「遅行」（一覧）、時刻は「到着見込み時刻」（入力）／「予定時刻」（確認）／「09:30予定」（一覧）。メニューも「遅れます」だけ文型が違う（他は「欠席を連絡する」「早退を連絡する」）
+    suggestion: 種別は「遅刻」、時刻は「到着見込み時刻」に統一する。メニューは「遅刻を連絡する」に揃える
+    judged_by: llm
+    llm_verdict: NG
+    status: open
+
+  - finding_id: SCH-20260926-03
+    item_id: TXT-01
+    screen: 全画面（役割切替・PMのサイドバー／パンくず／ユーザー表示）
+    phase: DS
+    severity: 3
+    severity_note: 既定2＋L3重み+1。呼称の方針は確定済みで、一括置換で解消できる
+    description: 本番呼称「コースマネージャ」に対し、モックは「ベンダーPM」表記。さらにPM画面内で「ベンダーPMワークスペース」（パンくず）／「研修運営ワークスペース」（サイドバー）／「研修運営 / PM」（ユーザー表示）の3通りが混在している
+    suggestion: 「コースマネージャ」に統一する（ワークスペース名も「コースマネージャ ワークスペース」など1つに決める）
+    judged_by: llm
+    llm_verdict: NG
+    status: open
+
+  - finding_id: SCH-20260926-04
+    item_id: A11Y-01
+    screen: 全50画面
+    phase: DS
+    severity: 3
+    description: "axe-core で全50画面にコントラスト不足（WCAG 1.4.3）を検出。主因は補足テキストの色 #63766e（背景 #f4f7f4 で 4.47:1、基準 4.5:1）。ほかにフッター #889781（2.86:1）、「必須」ラベル #748768（白背景で 3.88:1）、バッジ #66746a/#eff2ef（4.35:1）、役割切替タブ #5e7163/#e9eee7（4.44:1）"
+    suggestion: "補足テキストのトークンを #5a6c64 程度に変更（#f4f7f4 で 5.17:1、#e9eee7 で 4.74:1）。フッター・必須ラベル・バッジも同じトークンに寄せる。トークン1〜2個の変更で全画面が解消する見込み"
+    judged_by: auto
+    status: open
+
+  - finding_id: SCH-20260926-05
+    item_id: P01
+    screen: 全画面（スマホ）：パンくず、補足説明、統計カードの注記、フッター、バッジ
+    phase: DS
+    severity: 2
+    description: スマホ表示で 9〜11px の文字が多用されている（パンくず・補足説明・統計カード注記・バッジは 10〜11px、フッターは 9px）。通勤中の片手操作という前提では読みにくい。L2に該当項目がないため L1 原則で記録
+    suggestion: 本文 16px、補足でも 12px 以上を下限にする。バッジは 12px＋太字を検討。複数サービスで出るようなら L2 への項目追加を検討する（改訂ルール）
+    judged_by: llm
+    llm_verdict: NG
+    status: open
+
+  - finding_id: SCH-20260926-06
+    item_id: SCH-03
+    screen: 全画面ヘッダーのお知らせアイコン、申請一覧の検索欄・期間タブ
+    phase: DS
+    severity: 2
+    description: 48×48px 未満の主要タップ対象がある。お知らせアイコン 44×48、申請一覧の検索欄 高さ46、期間タブ「当日」幅46。ほかにロゴリンク（高さ35）、役割切替（高さ44）はモック用の操作
+    suggestion: アイコンボタンと期間タブに min-width/min-height 48px を指定する。検索欄の高さを 48px にする
+    judged_by: auto
+    status: open
+
+  - finding_id: SCH-20260926-07
+    item_id: NAV-03
+    screen: 社員・人事・PMのスマホ表示（ヘッダー／下部ナビ／メニュー）
+    phase: DS
+    severity: 2
+    description: PC表示ではヘッダーにヘルプ（？）アイコンがあるが、スマホ表示ではヘッダー・下部ナビ・メニュー画面のどこにもヘルプ・問い合わせ導線がない（メニューにあるのは「モックについて」のみ）。スマホ中心の社員が困ったときの行き先がない
+    suggestion: スマホのメニュー画面に「ヘルプ・お問い合わせ」を常設し、ヘッダーのアイコン位置も PC と揃える
+    judged_by: llm
+    llm_verdict: NG
+    status: open
+
+  - finding_id: SCH-20260926-08
+    item_id: SCH-08
+    screen: pm-attendance.html（全体の出席状況）
+    phase: DS
+    severity: 2
+    severity_note: 既定3から-1。件数（実績確定 0 / 6名）と会社列は絞り込みに追従しているため
+    description: 会社で絞り込んでも、見出しは「新入社員研修 4月8日（水）」のままで、どの会社を表示中かはプルダウンの中にしか表示されない。画面タイトルも「全体の出席状況」のまま
+    suggestion: 絞り込み中は見出しに「ハルカデザイン（絞り込み中）」を表示し、解除ボタンを置く（DAT-01 と同じ扱い）
+    judged_by: human
+    status: open
+
+  - finding_id: SCH-20260926-09
+    item_id: SCH-07
+    screen: instructor-attendance.html（出席確認・確定）
+    phase: DS
+    severity: 2
+    description: 一括確定の対象外（未連絡・遅刻・欠席）の行はチェックボックスが無効化されているが、行ごとの理由表示がない。理由は一覧上部の注意書きにしかなく、無効化されたチェックボックスは薄くて気づきにくい
+    suggestion: 無効化した行に「個別に確認」などの短い理由を表示するか、ホバー／タップで理由を出す。対象外の行は「確認」ボタンを強調する
+    judged_by: llm
+    llm_verdict: NG
+    status: open
+
+  - finding_id: SCH-20260926-10
+    item_id: TXT-01
+    screen: employee-applications.html（自分の連絡・申請）
+    phase: DS
+    severity: 1
+    description: 社員向けの検索欄が「申請番号で検索」になっている。社員は申請番号（A007 など）を覚えていないため、システム側の都合の表現になっている
+    suggestion: 「日付・研修名で検索」にするか、検索欄をなくして期間タブと種別・状態の絞り込みに任せる
+    judged_by: llm
+    llm_verdict: NG
+    status: open
+
+  - finding_id: SCH-20260926-11
+    item_id: P08
+    screen: 講師の一括確定確認（ファイル名表示）、PMの会社別の状況（人事向けの注記）、スマホの役割切替
+    phase: DS
+    severity: 1
+    severity_note: モック固有。本番化時に除去すれば解消する
+    description: モック用の表示が本番の画面要素と混在している。ページ右上にHTMLファイル名、PM画面に「人事担当の画面では、会社切替は表示されません」という別役割向けの注記、スマホでは役割切替の文字が切れている（「人事担当として見」）
+    suggestion: モック専用の要素に共通クラスを付けて、本番ビルドで一括除去できるようにしておく
+    judged_by: llm
+    llm_verdict: NG
+    status: open
