@@ -13,7 +13,9 @@ findings:
     suggestion: 「遅行」を「遅刻」に一括置換する。用語集に「遅刻」を登録し、avoid に「遅行」を追加する
     judged_by: llm
     llm_verdict: NG
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-02
     item_id: CON-02
@@ -24,7 +26,9 @@ findings:
     suggestion: 種別は「遅刻」、時刻は「到着見込み時刻」に統一する。メニューは「遅刻を連絡する」に揃える
     judged_by: llm
     llm_verdict: NG
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-03
     item_id: TXT-01
@@ -36,7 +40,9 @@ findings:
     suggestion: 「コースマネージャ」に統一する（ワークスペース名も「コースマネージャ ワークスペース」など1つに決める）
     judged_by: llm
     llm_verdict: NG
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-04
     item_id: A11Y-01
@@ -46,7 +52,9 @@ findings:
     description: "axe-core で全50画面にコントラスト不足（WCAG 1.4.3）を検出。主因は補足テキストの色 #63766e（背景 #f4f7f4 で 4.47:1、基準 4.5:1）。ほかにフッター #889781（2.86:1）、「必須」ラベル #748768（白背景で 3.88:1）、バッジ #66746a/#eff2ef（4.35:1）、役割切替タブ #5e7163/#e9eee7（4.44:1）"
     suggestion: "補足テキストのトークンを #5a6c64 程度に変更（#f4f7f4 で 5.17:1、#e9eee7 で 4.74:1）。フッター・必須ラベル・バッジも同じトークンに寄せる。トークン1〜2個の変更で全画面が解消する見込み"
     judged_by: auto
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-05
     item_id: P01
@@ -57,7 +65,9 @@ findings:
     suggestion: 本文 16px、補足でも 12px 以上を下限にする。バッジは 12px＋太字を検討。複数サービスで出るようなら L2 への項目追加を検討する（改訂ルール）
     judged_by: llm
     llm_verdict: NG
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-06
     item_id: SCH-03
@@ -67,7 +77,9 @@ findings:
     description: 48×48px 未満の主要タップ対象がある。お知らせアイコン 44×48、申請一覧の検索欄 高さ46、期間タブ「当日」幅46。ほかにロゴリンク（高さ35）、役割切替（高さ44）はモック用の操作
     suggestion: アイコンボタンと期間タブに min-width/min-height 48px を指定する。検索欄の高さを 48px にする
     judged_by: auto
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-07
     item_id: NAV-03
@@ -78,7 +90,9 @@ findings:
     suggestion: スマホのメニュー画面に「ヘルプ・お問い合わせ」を常設し、ヘッダーのアイコン位置も PC と揃える
     judged_by: llm
     llm_verdict: NG
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-08
     item_id: SCH-08
@@ -89,7 +103,9 @@ findings:
     description: 会社で絞り込んでも、見出しは「新入社員研修 4月8日（水）」のままで、どの会社を表示中かはプルダウンの中にしか表示されない。画面タイトルも「全体の出席状況」のまま
     suggestion: 絞り込み中は見出しに「ハルカデザイン（絞り込み中）」を表示し、解除ボタンを置く（DAT-01 と同じ扱い）
     judged_by: human
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-09
     item_id: SCH-07
@@ -100,7 +116,9 @@ findings:
     suggestion: 無効化した行に「個別に確認」などの短い理由を表示するか、ホバー／タップで理由を出す。対象外の行は「確認」ボタンを強調する
     judged_by: llm
     llm_verdict: NG
-    status: open
+    status: fixed
+    fixed_in: fix/uiux-review-20260926
+    verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-10
     item_id: TXT-01
@@ -123,4 +141,37 @@ findings:
     suggestion: モック専用の要素に共通クラスを付けて、本番ビルドで一括除去できるようにしておく
     judged_by: llm
     llm_verdict: NG
+    status: open
+
+  # ---- 2026-09-26 再レビューで追加 ----
+  - finding_id: SCH-20260926-12
+    item_id: DAT-01
+    screen: pm-attendance.html（全体の出席状況）
+    phase: DS
+    severity: 2
+    description: 会社・状態で絞り込むと、見出し右側の「実績確定 0 / 18名」が「絞り込みを解除」ボタンに置き換わって消える。絞り込み中の会社の確定進捗が見えなくなる（SCH-20260926-08 の修正で生じた退行）
+    suggestion: 「実績確定 0 / 6名（ハルカデザイン）」のように、絞り込み後の件数で進捗表示を残し、解除ボタンは見出しの下か条件表示の隣に置く
+    judged_by: human
+    status: open
+
+  - finding_id: SCH-20260926-13
+    item_id: RSP-01
+    screen: instructor-attendance.html（幅390px）
+    phase: DS
+    severity: 1
+    severity_note: 講師はPC主対象のため1。スマホでは崩れないことだけを求める
+    description: 幅390pxで「個別に確認」が「個別に確／認」と途中で折り返す。社員の所属も「営業／部」で折り返し、一括確定バーのボタン文言が3行に折り返す
+    suggestion: 「個別に確認」は折り返し禁止（white-space:nowrap）にしてチェックボックスの下に配置する。一括確定バーはスマホでは「一括確定へ」など短い文言にする
+    judged_by: llm
+    llm_verdict: NG
+    status: open
+
+  - finding_id: SCH-20260926-14
+    item_id: CON-01
+    screen: 各役割のダッシュボード（hero・resource-card）
+    phase: DS
+    severity: 1
+    description: 修正作業の報告（docs/UIUX_FIX_20260926.md §5）で、--muted とは別の緑系グレーが多数直書きされていたことが判明。コントラストは修正済みだが、色の定義が一元化されていない
+    suggestion: 文字色・補助色をトークン（--muted、--muted-strong など）に集約し、直書きの色を禁止する lint を追加する
+    judged_by: human
     status: open
