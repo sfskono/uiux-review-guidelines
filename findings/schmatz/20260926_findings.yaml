@@ -14,7 +14,7 @@ findings:
     judged_by: llm
     llm_verdict: NG
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-02
@@ -27,7 +27,7 @@ findings:
     judged_by: llm
     llm_verdict: NG
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-03
@@ -41,7 +41,7 @@ findings:
     judged_by: llm
     llm_verdict: NG
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-04
@@ -53,7 +53,7 @@ findings:
     suggestion: "補足テキストのトークンを #5a6c64 程度に変更（#f4f7f4 で 5.17:1、#e9eee7 で 4.74:1）。フッター・必須ラベル・バッジも同じトークンに寄せる。トークン1〜2個の変更で全画面が解消する見込み"
     judged_by: auto
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-05
@@ -66,7 +66,7 @@ findings:
     judged_by: llm
     llm_verdict: NG
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-06
@@ -78,7 +78,7 @@ findings:
     suggestion: アイコンボタンと期間タブに min-width/min-height 48px を指定する。検索欄の高さを 48px にする
     judged_by: auto
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-07
@@ -91,7 +91,7 @@ findings:
     judged_by: llm
     llm_verdict: NG
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-08
@@ -104,7 +104,7 @@ findings:
     suggestion: 絞り込み中は見出しに「ハルカデザイン（絞り込み中）」を表示し、解除ボタンを置く（DAT-01 と同じ扱い）
     judged_by: human
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-09
@@ -117,7 +117,7 @@ findings:
     judged_by: llm
     llm_verdict: NG
     status: fixed
-    fixed_in: fix/uiux-review-20260926
+    fixed_in: schmatz master e67fd06
     verified: 2026-09-26 再レビューで解消を確認
 
   - finding_id: SCH-20260926-10
@@ -152,7 +152,9 @@ findings:
     description: 会社・状態で絞り込むと、見出し右側の「実績確定 0 / 18名」が「絞り込みを解除」ボタンに置き換わって消える。絞り込み中の会社の確定進捗が見えなくなる（SCH-20260926-08 の修正で生じた退行）
     suggestion: 「実績確定 0 / 6名（ハルカデザイン）」のように、絞り込み後の件数で進捗表示を残し、解除ボタンは見出しの下か条件表示の隣に置く
     judged_by: human
-    status: open
+    status: fixed
+    fixed_in: schmatz master e67fd06（fix/uiux-review-20260926 8f2b7d5）
+    verified: 2026-09-26 Claude Code の追加テスト（verify.py）で確認
 
   - finding_id: SCH-20260926-13
     item_id: RSP-01
