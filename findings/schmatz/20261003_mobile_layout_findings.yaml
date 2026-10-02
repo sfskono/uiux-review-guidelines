@@ -1,0 +1,38 @@
+# 文書・既存スクリーンショットの一次レビュー。新レイアウトは未実装。
+review:
+  date: 2026-10-03
+  implementation_ref: fbaabefb4cfffe74028d82cf2d07a5fc8efff875
+  guideline: guideline/uiux_review_guideline_rev2.md
+  baseline_profile: profiles/uiux_profile_schmatz_rev2.md
+  proposed_profile: profiles/uiux_profile_schmatz_rev3.md
+  human_approval: pending
+  viewport: {width: 375, height: 667}
+findings:
+  - finding_id: SCH-20261003-01
+    item_id: P08
+    screen: 社員スマホホームの上部ヘッダー
+    phase: DS
+    severity: 2
+    severity_note: 主要タスクの失敗ではなく、独立行と下部ナビの重複による密度・一貫性の見直し。最終判定は人。
+    description: ロゴのホームリンク・ヘルプ・装飾アバターを独立行に置き、社員の下部ナビにもホームとヘルプがある。アバターはアカウント操作ではない。
+    suggestion: 独立行を統合する案を比較し、サービス識別・現在地・必要な利用者確認・社員画面群の一貫したヘルプ導線を残す。
+    judged_by: llm
+    llm_verdict: NG
+    human_verdict: pending
+    status: open
+    fixed_in: null
+    verified: null
+  - finding_id: SCH-20261003-02
+    item_id: P08
+    screen: 社員スマホホームの今日の研修の見出しと研修カード
+    phase: DS
+    severity: 2
+    severity_note: カード全体や16pxの名称を過大と断定しない。上部の累積高さと業務情報の配分を再比較する一次指摘。
+    description: モック帯と独立した今日の研修の見出し・日付がカードに先行する。375×667px画像ではカード開始が約170px下で、導入の構成にさらに統合余地がある。
+    suggestion: 今日の研修と対象日を研修ブロック先頭にまとめ、状態と操作は主要コンテンツとして保持する。必要情報や48pxの操作領域を削らず、長文・複数件・エラー時は縦スクロールを許容する。
+    judged_by: llm
+    llm_verdict: NG
+    human_verdict: pending
+    status: open
+    fixed_in: null
+    verified: null
