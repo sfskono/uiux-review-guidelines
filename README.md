@@ -31,3 +31,13 @@ python3 tools/gen_guideline_xlsx.py guideline/uiux_review_guideline_rev1.md
 - デジタル庁デザインシステム / JIS X 8341-3（WCAG 2.2 AA相当）
 - Atlassian Design System / IBM Carbon
 - Microsoft HAX Guidelines / Google PAIR Guidebook
+
+## 2026-10-03 モバイルレイアウトの見直し案
+
+共通チェックリストは[rev2](guideline/uiux_review_guideline_rev2.md)を維持します。次の文書は未承認の改訂案で、新しい共通L2 Mustの追加や、UI改修の受入完了を意味しません。
+
+- [ヘッダー・主要タスク領域の判断補足 rev1](guideline/mobile_task_layout_review_rev1.md)
+- [schmatz L3プロファイル rev3案](profiles/uiux_profile_schmatz_rev3.md)（rev2のSCH-01〜08を保持しSCH-09〜11を追加）
+- [schmatzの再レビューと指摘](findings/schmatz/20261003_mobile_layout_review.md)
+
+承認前は従来のプロファイルを基準とし、新規項目は提案として扱います。共通版xlsxの生成方法は変更せず、今回の判断補足とL3追加項目はその自動生成対象ではありません。
